@@ -3,6 +3,7 @@
 This is a reusable Django project template, featuring Docker for containerisation and PostgreSQL as the database. It is designed to help you quickly set up a fully containerised Django project.
 
 ## Features
+
 - Django (Python 3.11)
 - Docker with Docker Compose
 - PostgreSQL database integration
@@ -14,6 +15,7 @@ This is a reusable Django project template, featuring Docker for containerisatio
 ### Prerequisites
 
 Before starting, ensure the following tools are installed on your machine:
+
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 - [Poetry](https://python-poetry.org/docs/#installation) (optional if you plan to use Poetry for managing dependencies)
@@ -56,7 +58,7 @@ Before starting, ensure the following tools are installed on your machine:
 
 ## Project Structure
 
-- **docker/**: Contains Docker-related files, including the `Dockerfile` and environment variable configurations.
+- **docker/**: Contains Docker-related files, including the `Dockerfile` and `entrypoint.sh`, which performs database migrations, optionally collects static files, creates a superuser and starts the development server.
 - **project_template/**: The main Django project folder, which should be renamed to match your project’s name.
 - **docker-compose.yml**: Docker Compose configuration for managing the containers (Django, PostgreSQL).
 - **pyproject.toml**: Poetry dependency management file, including Django 5.1.1 and `psycopg2-binary` for PostgreSQL integration.

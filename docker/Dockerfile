@@ -24,7 +24,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
     ln -s /opt/poetry/bin/poetry /usr/local/bin/poetry
 
 # Copy pyproject.toml and poetry.lock into the project directory (where manage.py is located)
-COPY ./project_template/pyproject.toml ./project_template/poetry.lock /app/project_template/
+COPY ./pyproject.toml ./poetry.lock /app/project_template/
 
 # Install dependencies using Poetry
 RUN poetry install --no-root
