@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  database:
+    container_name: database
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: project_template_db
+      POSTGRES_USER: project_template_db_user
+      POSTGRES_PASSWORD: project_template_db_password_123
+
+  django:
+    container_name: django
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - .:/app/
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_ENGINE: django.db.backends.postgresql
+      DATABASE_NAME: project_template_db
+      DATABASE_USER: project_template_db_user
+      DATABASE_PASSWORD: project_template_db_password_123
+      DATABASE_HOST: database
+      DATABASE_PORT: 5432
+    depends_on:
+      - database
+
+volumes:
+  postgres_data:
