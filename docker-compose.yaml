@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   database:
     container_name: database
@@ -10,6 +8,8 @@ services:
       POSTGRES_DB: project_template_db
       POSTGRES_USER: project_template_db_user
       POSTGRES_PASSWORD: project_template_db_password_123
+    ports:
+      - "5432:5432"
 
   django:
     container_name: django
