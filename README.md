@@ -36,7 +36,41 @@ Before starting, ensure the following tools are installed on your machine:
    - The inner Django `project_template` folder
    - Any references in the project files (e.g. Django settings, `docker-compose.yml`, `Dockerfile`, and `pyproject.toml`).
 
-3. **Build the Docker containers**:
+3. **Associate the project to your own Git repository**:
+
+   1. Initialise an empty repository on GitHub (or your preferred Git provider).
+
+   2. Remove the original remote:
+
+   ```bash
+   git remote remove origin
+   ```
+
+   3. Delete the Git history:
+
+   ```bash
+   rm -rf .git
+   ```
+
+   4. Re-initialise the Git repository:
+
+   ```bash
+   git init
+   ```
+
+   5. Add your new remote:
+
+   ```bash
+   git remote add origin <your-repository-url>
+   ```
+
+   6. Push the project to your new remote:
+
+   ```bash
+   git push -u origin main
+   ```
+
+4. **Build the Docker containers**:
 
    Once the project has been renamed, build the Docker containers using the following command:
 
@@ -44,7 +78,7 @@ Before starting, ensure the following tools are installed on your machine:
    docker-compose build
    ```
 
-4. **Run the containers**:
+5. **Run the containers**:
 
    Launch the Django and PostgreSQL containers:
 
@@ -52,7 +86,7 @@ Before starting, ensure the following tools are installed on your machine:
    docker-compose up
    ```
 
-5. **Access the application**:
+6. **Access the application**:
 
    Open `http://localhost:8000` in your browser to view your Django app. The admin panel is accessible at `http://localhost:8000/admin`.
 
