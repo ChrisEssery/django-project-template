@@ -58,13 +58,25 @@ Before starting, ensure the following tools are installed on your machine:
    git init
    ```
 
-   5. Add your new remote:
+   5. Prepare the project for commit:
+
+   ```bash
+   git add .
+   ```
+
+   6. Commit the project:
+
+   ```bash
+   git commit -m "Initial commit"
+   ```
+
+   7. Add your new remote:
 
    ```bash
    git remote add origin <your-repository-url>
    ```
 
-   6. Push the project to your new remote:
+   8. Push the project to your new remote:
 
    ```bash
    git push -u origin main
